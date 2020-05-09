@@ -1,6 +1,6 @@
 {
   "name": "vue-dom",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Vue-dom is a VueJS front end for the home automation software Jeedom",
   "keywords": [
     "Jeedom",
@@ -62,7 +62,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-vue": "^6.2.1",
     "moment-locales-webpack-plugin": "^1.2.0",
-    "node-sass": "^4.14.0",
+    "node-sass": "^4.14.1",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
   }

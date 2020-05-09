@@ -1,6 +1,7 @@
 <template>
   <div>
     <navbar v-if="isAuthenticated" />
+    <sidebar v-if="isAuthenticated" />
     <router-view v-if="isReady" :key="$route.fullPath" />
   </div>
 </template>
@@ -8,12 +9,14 @@
 <script>
 import { createNamespacedHelpers } from 'vuex'
 import Navbar from '@/components/Navbar'
+import Sidebar from '@/components/Sidebar'
 const { mapState, mapMutations } = createNamespacedHelpers('app')
 const { mapActions } = createNamespacedHelpers('data')
 
 export default {
   components: {
     Navbar,
+    Sidebar,
   },
   data () {
     return {
@@ -34,11 +37,17 @@ export default {
     },
     information: function (information) {
       if (information.message) {
-        this.$buefy.toast.open({
+        const toast = {
           message: information.message,
           type: information.type,
-          position: 'is-bottom',
-        })
+        }
+        if (information.position) {
+          toast.position = information.position
+        }
+        if (information.duration) {
+          toast.duration = information.duration
+        }
+        this.$buefy.toast.open(toast)
       }
     },
   },

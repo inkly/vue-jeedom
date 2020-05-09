@@ -9,6 +9,7 @@ import ObjectDetail from '@/components/ObjectDetail'
 import Scenarios from '@/components/Scenarios'
 import Tag from '@/components/Tag'
 import About from '@/components/About'
+import Notifications from '@/components/Notifications'
 
 Vue.use(Router)
 
@@ -83,6 +84,14 @@ const routes = [
       title: 'A propos',
     },
   },
+  {
+    path: '/notifications',
+    name: 'notifications',
+    component: Notifications,
+    meta: {
+      title: 'Notifications',
+    },
+  },
 ]
 
 // create router
@@ -115,11 +124,9 @@ router.beforeEach((to, from, next) => {
     }
     document.title = title + ' | ' + custom.title
   }
-  // close hamburger (if existing)
-  const burger = document.getElementById('navbar-burger')
-  if (burger) {
-    burger.classList.remove('is-active')
-    document.getElementById('navbar-menu').classList.remove('is-active')
+  // close sidebar
+  if (store.state.app.hasSidebarOpened) {
+    store.commit('app/setSidebarStatus', false)
   }
   next()
 })

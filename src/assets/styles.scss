@@ -16,6 +16,13 @@ $slider-thumb-border: 1px solid $primary;
   color: $primary !important
 }
 
+.sidebar-content .router-link-exact-active {
+  color: $primary !important
+}
+.sidebar-content img {
+  max-height: 3.5rem;
+}
+
 @import "~buefy/src/scss/buefy";
 
 a {
@@ -85,6 +92,11 @@ $i: 1;
   margin-right: 0.4em;
 }
 
+.is-flex-center {
+  display: flex;
+  align-items: center;
+}
+
 .is-flex-space-between {
   display: flex;
   justify-content: space-between;
@@ -119,4 +131,38 @@ $i: 1;
   @include from($navbar-breakpoint) {
     display: none !important;
   }
+}
+
+.navbar .is-auto-expand {
+  width:40px;
+}
+
+.navbar .is-auto-expand:not(.is-expanded) input {
+  cursor: pointer;
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.navbar .is-auto-expand:not(.is-expanded) .icon {
+  color: #fff !important;
+}
+
+.navbar .is-auto-expand.is-expanded {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  width: 100%;
+  padding: 0.5em;
+}
+
+.navbar .is-auto-expand:not(.is-expanded) .dropdown-menu {
+  display: none;
+}
+
+.navbar .is-auto-expand .delete {
+  position: fixed;
+  right: 18px;
+  top: 14px;
 }
